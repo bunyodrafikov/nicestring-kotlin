@@ -1,24 +1,20 @@
-package bunyodrafikov.nicestring
+package nicestring
 
-fun String.isNice(): Boolean {
-    val vowels = listOf('a','e','i','o','u')
 
-    val doesNotContainsBuBaBe = !this.contains("bu")
-            && !this.contains("ba")
-            && !this.contains("be")
+ fun String.isNice(): Boolean {
+     val vowels = listOf<Char>('a', 'e', 'i', 'o', 'u')
 
-    val containsAtLeastThreeVowels = this.filter { it -> vowels.contains(it) }.count() >= 3
+     val DoesNotContainBuBaBe = !this.contains("bu") && !this.contains("ba") && !this.contains("be")
+     val ContainsVowels = this.filter { it -> vowels.contains(it) }.count() >=3
 
-    var containsADoubleLetterFollowingEachOther = false
-    this.forEachIndexed { index, element ->
-        if(index != 0){
-            if(this.get(index - 1) == element) {
-                containsADoubleLetterFollowingEachOther = true
-            }
-        }
-    }
-
-    return listOf(doesNotContainsBuBaBe, containsAtLeastThreeVowels, containsADoubleLetterFollowingEachOther)
-            .filter { it }
-            .count() >= 2
-}
+     var ContainsDoubledChar = false
+     this.forEachIndexed { index, element ->
+         if (index != 0)
+             if (this.get(index-1)==element){
+                 ContainsDoubledChar = true
+             }
+     }
+     return listOf(DoesNotContainBuBaBe, ContainsVowels, ContainsDoubledChar)
+         .filter { it }
+         .count() >=2
+ }
