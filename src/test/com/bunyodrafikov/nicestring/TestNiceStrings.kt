@@ -1,4 +1,4 @@
-package jesusdev.nicestring
+package bunyodrafikov.nicestring
 
 import jesusgsdev.nicestring.isNice
 import org.junit.Assert
